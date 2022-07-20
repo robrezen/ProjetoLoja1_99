@@ -1,0 +1,26 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Vendedor
+{% endblock %}
+
+{% block content %}
+{% for vendedor in vendedores %}
+    <h3>Vendedor encontrado:</h3>
+    <ul>
+        <li> CPF: {{ vendedor.cpf_vendedor }} </li>
+        <li> Nome: {{ vendedor.nome_vendedor }} </li>
+        <li> Data de admissão: {{ vendedor.data_admissao }} </li>
+        <li> Salário bruto: {{ vendedor.salario_bruto }} </li>
+        <li> Salário líquido: {{ vendedor.salario_liquido }} </li>
+        <li> Percentual de Comissão: {{ vendedor.percentual_comissao }} </li>
+        <li> Quantidade de vendas: {{ vendedor.quantidade_vendas }} </li>
+    </ul>
+{% endfor %}
+
+{% if not vendedores %}
+    <h3>Nenhum vendedor encontrado! </h3>
+{% endif %}
+
+<a href="/consultar-vendedor"><h3>Retornar</h3></a>
+{% endblock %}

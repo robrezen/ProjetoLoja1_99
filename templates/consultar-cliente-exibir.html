@@ -1,0 +1,19 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Cliente
+{% endblock %}
+
+{% block content %}
+{% for cliente in clientes %}
+    <h3>Cliente encontrado:</h3>
+    <ul>
+        <li> CPF: {{ cliente.cpf_cliente }} </li>
+        <li> Nível: {{ cliente.nivel }} </li>
+        <li> Email: {{ cliente.email }} </li>
+        <li> Telefone: {{ cliente.telefone }} </li>
+    </ul>
+{% endfor %}
+
+<br><a href="/consultar-cliente"><h3>Retornar</h3></a>
+{% endblock %}

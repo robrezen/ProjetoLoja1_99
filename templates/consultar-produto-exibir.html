@@ -1,0 +1,23 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Produto
+{% endblock %}
+
+{% block content %}
+{% for produto in produtos %}
+    <h3>Produtos encontrados:</h3>
+    <ul>
+        <li> Código: {{ produto.num_produto }} </li>
+        <li> Nome: {{ produto.nome_produto }} </li>
+        <li> Valor: {{ produto.valor_produto }} </li>
+        <li> Quantidade em Estoque: {{ produto.quantidade_produto }} </li>
+    </ul>
+{% endfor %}
+
+{% if not produtos %}
+    <h3>Nenhum produto encontrado! </h3>
+{% endif %}
+
+<a href="/consultar-produto"><h3>Retornar</h3></a>
+{% endblock %}

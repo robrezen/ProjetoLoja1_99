@@ -1,0 +1,26 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div style="text-align:center">
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}    
+           <b> {{ message }} </b>
+        {% endif %}
+    {% endfor %}
+    
+    <h2>Login:</h2>
+    <form action="submit" method="post"> {% csrf_token %}
+        <label>Usuário: <input type="text" name="username"></label>
+        <br>
+        <br>
+        <label>Senha: <input type="password" name="password"></label>
+        <br>
+        <br>
+        <button type="submit">Confirma</button>
+    </form>
+</div>
+{% endblock %}

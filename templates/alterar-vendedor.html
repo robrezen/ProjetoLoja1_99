@@ -1,0 +1,23 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Alterar Vendedor
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="form-group">
+            <a href="/administrar-vendedor"><button class="btn btn-primary"><<</button></a>
+        </div>
+    </div>
+
+
+<div style="text-align:center">
+    <h3>Alterar Vendedor Existente:</h3><br><br>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>CPF do Vendedor a Alterar: <input type="number" name="cpf_vendedor"></label><br><br>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+</div>
+{% endblock %}

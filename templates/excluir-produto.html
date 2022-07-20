@@ -1,0 +1,43 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Excluir Produto
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-produto"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+
+<div>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>Código do Produto: <input type="number" name="num_produto" value="{{id}}"></label></br>
+        <input type="submit" name="infoProduto" value="Exibir Informações do Produto" class="btn btn-primary"></br>
+    </form>
+    
+    {% if exibir_produto %}
+        {% for produto in produtos %}
+        <h3>Produtos encontrados:</h3>
+        <ul>
+            <li> Código: {{ produto.num_produto }} </li>
+            <li> Nome: {{ produto.nome_produto }} </li>
+            <li> Valor: {{ produto.valor_produto }} </li>
+            <li> Quantidade em Estoque: {{ produto.quantidade_produto }} </li>
+        </ul>
+        {% endfor %}
+        {% if not produtos %}
+            <h3>Produto não encontrado!</h3>
+        {% endif %}
+    
+        {% if produtos %}
+        <form action="confirm" method="POST"> {% csrf_token %}
+            <input type="hidden" name="num_produto" value="{{id}}">
+            <button class="btn btn-primary" type="submit">Confirmar</button>
+            <a href="/administrar-produto"><button class="btn btn-primary" type="button">Cancelar</button></a>
+        </form>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

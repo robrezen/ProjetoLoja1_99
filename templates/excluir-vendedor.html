@@ -1,0 +1,46 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Excluir Vendedor
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-vendedor"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+
+<div>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>CPF do Vendedor: <input type="number" name="cpf_vendedor" value="{{id}}"></label></br>
+        <input type="submit" name="infoVendedor" value="Exibir Informações do Vendedor"></br>
+    </form>
+    
+    {% if exibir_vendedor %}
+        {% for vendedor in vendedores %}
+        <h3>Vendedores encontrados:</h3>
+        <ul>
+            <li> CPF: {{ vendedor.cpf_vendedor }} </li>
+            <li> Nome: {{ vendedor.nome_vendedor }} </li>
+            <li> Data Admissão: {{ vendedor.data_admissao }} </li>
+            <li> Salário Bruto: {{ vendedor.salario_bruto }} </li>
+            <li> Salário Líquido: {{ vendedor.salario_liquido }} </li>
+            <li> Percentual Comissão: {{ vendedor.percentual_comissao }} </li>
+            <li> Quantidade Vendas: {{ vendedor.quantidade_vendas }} </li>
+        </ul>
+        {% endfor %}
+        {% if not vendedores %}
+            <h3>Vendedor não encontrado!</h3>
+        {% endif %}
+    
+        {% if vendedores %}
+        <form action="confirm" method="POST"> {% csrf_token %}
+            <input type="hidden" name="cpf_vendedor" value="{{id}}">
+            <button class="btn btn-primary" type="submit">Confirmar</button>
+            <a href="/administrar-vendedor"><button class="btn btn-primary" type="button">Cancelar</button></a>
+        </form>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

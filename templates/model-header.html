@@ -1,0 +1,17 @@
+
+<div class="container-fluid">
+     <h4><div class="d-flex bd-highlight">
+    <div class="p-2 flex-grow-1 bd-highlight"><a href="/index"><button type="button" class="btn btn-dark">Home</button></a></div>
+    {% if user.is_authenticated %}
+        <div class="p-2 bd-highlight"> <a> Olá! Bem-vindo, {{user.username}}!</a></div>
+        <div class="p-2 bd-highlight"> <a href="/logout"><button class="btn btn-dark" type="submit">Logout</button></a></div>
+    {% else %}
+        <div class="p-2 bd-highlight"> <a> Ops! Parece que você não está logado!</a></div>
+        <div class="p-2 bd-highlight"> <a href="/login"><button class="btn btn-dark" type="submit">Login</button></a></div>
+    {% endif %}
+</div></h4>
+</div> 
+<hr>
+<br>
+<br>
+<h1 style="text-align:center"><i>Sistema de Gerenciamento de Banco de Dados</i></h1>

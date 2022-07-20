@@ -1,0 +1,39 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Registrar Produto
+{% endblock %}
+
+{% block content %}
+<form>
+    <div class="container-fluid">
+        <div class="form-group">
+            <a href="/administrar-produto"><button class="btn btn-primary"><<</button></a>
+        </div>
+    </div>
+</form>
+
+<form action="submit" method="POST"> {% csrf_token %}
+    <div class="container-fluid">  
+        <div class="form-group" style="text-align:center">
+           <h3> Registrar novo Produto </h3>
+        </div>
+        <div class="form-group">
+            <label><b>Nome do Produto: </b></label>
+            <input type="text" class="form-control" name="nome_produto" placeholder="Insira a descrição do produto">
+        </div>
+        
+        <div class="form-group">
+            <label><b>Valor: </b></label>
+            <input type="number" class="form-control" name="valor_produto" placeholder="Insira o valalor do produto">
+        </div>
+        <div class="form-group">
+            <label><b>Quantidade: </b></label>
+            <input type="number" class="form-control" step="1" name="quantidade_produto" placeholder="Insira a quantidade total do produto">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Confirma</button>
+    </div>
+  </form>
+
+  {% endblock %}

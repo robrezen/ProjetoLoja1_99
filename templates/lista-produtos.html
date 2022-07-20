@@ -1,0 +1,33 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Lista Produtos
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+
+            <tr>
+                <th colspan="4">Lista de Produtos</th>
+            </tr>
+            <tr>
+                <th  scope="col">Nome</th>
+                <th  scope="col">Código</th>
+                <th  scope="col">Valor</th>
+                <th  scope="col">Qtde</th>
+            </tr>
+
+        </thead>
+    {% for produto in lista_produtos %}
+        <tr>
+            <td>{{ produto.nome_produto}}</td>
+            <td>{{ produto.num_produto}}</td>
+            <td>{{ produto.valor_produto}}</td>
+            <td>{{ produto.quantidade_produto}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

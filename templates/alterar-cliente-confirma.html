@@ -1,0 +1,55 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Alterar Cliente
+{% endblock %}
+
+{% block content %}
+<h3>Alterar Seguinte Cliente:</h3><br>
+
+{% for cliente in clientes %}
+<form action="submit" method="POST"> {% csrf_token %}
+    <div class="container-fluid">
+        <div class="form-group">
+            <label><b>CPF do Cliente: </b></label>
+            <input type="number" name="cpf_cliente" value="{{cliente.cpf_cliente}}" readonly="readonly">
+        </div>
+
+        <div class="form-group">
+            <label><b>Nome do Cliente: </b></label>
+            <input type="text" name="nome_cliente" value="{{cliente.nome_cliente}}">
+        </div>
+        
+        <div class="form-group">
+            <label><b>Nivel: </b></label>
+            <input type="number" name="nivel" value="{{cliente.nivel}}">
+        </div>
+        <div class="form-group">
+            <label><b>Email: </b></label>
+            <input type="text" name="email" value="{{cliente.email}}">
+        </div>
+
+        <div class="form-group">
+            <label><b>Telefone: </b></label>
+            <input type="number" name="telefone" value="{{cliente.telefone}}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Confirma</button>
+    </div>
+  </form>
+
+{% endfor %}
+
+<form>
+    <div class="container-fluid">
+        <div class="form-group">
+            <a href="/alterar-cliente"><button class="btn btn-primary">Cancelar</button></a>
+        </div>
+    </div>
+</form>
+
+{% if not clientes %}
+  <h3>Nenhum cliente encontrado!</h3>
+{% endif %}
+
+{% endblock %}

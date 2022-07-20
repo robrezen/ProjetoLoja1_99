@@ -1,0 +1,36 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Lista Clientes
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div>
+        <h3> <a href="/administrar-cliente"><button type="bac" class="btn btn-primary"><<</button></a></h3>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="5">Lista de Clientes</th>
+            </tr>
+            <tr>
+                <th scope="col">CPF</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Nível</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+            </tr>
+        </thead>
+        {% for cliente in lista_clientes %}
+        <tr>
+            <td>{{ cliente.cpf_cliente}}</td>
+            <td>{{ cliente.nome_cliente}}</td>
+            <td>{{ cliente.nivel}}</td>
+            <td>{{ cliente.email}}</td>
+            <td>{{ cliente.telefone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

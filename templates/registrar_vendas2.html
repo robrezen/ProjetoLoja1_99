@@ -1,0 +1,46 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Registrar Vendas
+{% endblock %}
+
+
+{% block content %}
+
+<form action="submit" method="POST"> {% csrf_token %}>
+    <div class="container-fluid">
+        <div class="form-group">
+            <h3> <a href="/administrar-vendedor"><button type="bac" class="btn btn-primary"><<</button></a></h3>
+        </div>
+        <div class="form-group" style="text-align:center">
+           <h3> Registrar novo Vendedor </h3>
+        </div>
+        <div class="form-group">
+            <label><b>Nome do Vendedor: </b></label>
+            <input type="text" class="form-control" name="nome_vendedor" placeholder="Insira o nome do Vendedor">
+        </div>
+        
+        <div class="form-group">
+            <label><b>CPF do Vendedor: </b></label>
+            <input type="number" class="form-control" name="cpf_vendedor" placeholder="Insira o CPF do Vendedor">
+        </div>
+
+        <div class="form-group">
+            <label><b>Salário Bruto: </b></label>
+            <input type="number" class="form-control" step=".01" name="salario_bruto" placeholder="Insira o Salário Bruto do vendedor">
+        </div>
+
+        <div class="form-group">
+            <label><b>Salário Líquido: </b></label>
+            <input type="number" class="form-control" step=".01" name="salario_liquido" placeholder="Insira o Salário liquido do vendedor">
+        </div>
+
+        <div class="form-group">
+            <label><b>Percentual Comissão: </b></label>
+            <input type="number" class="form-control" step=".01" name="percentual_comissao" placeholder="Insira o percentual de comissão do Vendedor">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Confirma</button>
+    </div>
+  </form>
+{% endblock %}

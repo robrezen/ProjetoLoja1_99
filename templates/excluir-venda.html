@@ -1,0 +1,23 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Excluir Venda
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-venda"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+
+<div>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>Código da Venda: <input type="number" name="codVenda"></label></br>
+        <input type="submit" name="infoVenda" value="Exbir Informações da Venda"></br>
+    </form>
+    <label>Exibir Informações da Venda</label></br>
+    <button class="btn btn-primary" type="button">Confirma</button>
+    <a href="/administrar-venda"><button class="btn btn-primary" type="button">Cancela</button></a>
+</div>
+{% endblock %}

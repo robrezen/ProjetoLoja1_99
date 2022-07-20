@@ -1,0 +1,36 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Lista Vendedores
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="6">Lista de Vendedores</th>
+            </tr>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data de Admissão</th>
+                <th scope="col">Salario Bruto</th>
+                <th scope="col">% Comissão</th>
+                <th scope="col">Qtde de Vendas</th>
+            </tr>
+        </thead>
+    {% for vendedor in lista_vendedores %}
+        <tr>
+            <td>{{ vendedor.nome_vendedor}}</td>
+            <td>{{ vendedor.cpf_vendedor}}</td>
+            <td>{{ vendedor.data_admissao}}</td>
+            <td>{{ vendedor.salario_bruto}}</td>
+            <td>{{ vendedor.percentual_comissao}}</td>
+            <td>{{ vendedor.quantidade_vendas}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "model-page.html" %}
+
+{% load static %}
+
+
+{% block head %}
+    <title>{% block title %}Administrar Vendedores{% endblock %}</title>
+{% endblock %}
+
+{% block content %}
+<div style="text-align:center">
+    <h2>Gerenciamento de Vendedores:</h2>
+    <div class="btn-group" role="group" aria-label="ADM Vendas"></div>
+            <a href="/registrar-vendedor"><button type="button" class="btn  btn-outline-info">Registrar Vendedor</button></a>
+            <a href="/alterar-vendedor"><button type="button" class="btn btn-outline-info">Alterar Vendedor</button></a>
+            <a href="/consultar-vendedor"><button type="button" class="btn btn-outline-info">Consultar Vendedor</button></a>
+            <a href="/lista-vendedores"><button type="button" class="btn btn-outline-info">Listar Vendedor</button></a>
+            <a href="/excluir-vendedor"><button type="button" class="btn btn-outline-danger">Excluir Vendedor</button></a>
+        <br>
+    </div>
+
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}    
+            <p style="text-align:center"><b> {{ message }} </b></p>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

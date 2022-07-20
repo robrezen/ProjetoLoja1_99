@@ -1,0 +1,30 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Alterar Produto
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <div class="form-group">
+            <a href="/administrar-produto"><button class="btn btn-primary"><<</button></a>
+        </div>
+    </div>
+
+
+<div style="text-align:center">
+    <h3>Alterar Produto Existente:</h3><br><br>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>Código do Produto a Alterar: <input type="number" name="num_produto"></label><br><br>
+        Ou<br><br>
+        <label>Nome do Produto a Alterar: <input type="text" name="nome_produto"></label><br><br>
+
+        <label><input type="radio" id="nome" name="tipo_ident" value="nome">Nome</label>
+        <label><input type="radio" id="codigo" name="tipo_ident" value="num">Código</label><br><br>
+
+        <button class="btn btn-primary" type="submit">Buscar</button>
+    </form>
+</div>
+{% endblock %}

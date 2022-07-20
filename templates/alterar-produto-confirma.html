@@ -1,0 +1,25 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Alterar Produto
+{% endblock %}
+
+{% block content %}
+<h3>Alterar Seguinte Produto:</h3><br>
+
+{% for produto in produtos %}
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>Código do Produto: <input type="number" name="num_produto" value="{{produto.num_produto}}" readonly="readonly"></label><br><br>
+        <label>Nome do Produto: <input type="text" name="nome_produto" value="{{produto.nome_produto}}"></label><br><br>
+        <label>Preço do Produto: <input type="number" name="valor_produto" value="{{produto.valor_produto}}"></label><br><br>
+        <label>Quantidade do Produto em Estoque: <input type="number" name="quantidade_produto" value="{{produto.quantidade_produto}}"></label><br><br>
+        <button type="submit">Confirmar</button>
+    </form>    
+{% endfor %}
+
+{% if not produtos %}
+    <h3>Nenhum produto encontrado!</h3>
+{% endif %}
+
+<a href="/alterar-produto"><button type="button">Cancelar</button></a>
+{% endblock %}

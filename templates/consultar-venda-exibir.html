@@ -1,0 +1,28 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Venda
+{% endblock %}
+
+{% block content %}
+{% for venda in vendas %}
+    <h3>Vendedor encontrado:</h3>
+    <ul>
+        <li> Número Venda: {{ venda.num_venda }} </li>
+        <li> Data Venda: {{ venda.data_venda }} </li>
+        <li> Valor: {{ venda.valor }} </li>
+        <li> Desconto: {{ venda.percentual_desc }} </li>
+        <li> CPF Vendedor: {{ venda.cpf_vendedor }} </li>
+        <li> CPF Cliente: {{ venda.cpf_cliente }} </li>
+        <li> Cód Produto: {{ venda.cod_produto }} </li>
+        <li> Qtde Produto: {{ venda.quantidade }} </li>
+    </ul>
+{% endfor %}
+
+{% if not vendas %}
+    <h3>Nenhum venda encontrado! </h3>
+{% endif %}
+
+<a href="/consultar-venda" class="btn btn-primary"><h3>Retornar</h3></a>
+{% endblock %}
+

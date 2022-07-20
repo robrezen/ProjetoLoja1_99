@@ -1,0 +1,22 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Registrar Venda
+{% endblock %}
+
+
+{% block content %}
+<a href="/administrar-venda"><h3><<</h3></a>
+<div style="text-align:center">
+    <h3>Registrar Nova Venda:</h3><br><br>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>Cpf do Vendedor: <input type="number" name="cpf_vendedor"></label><br><br>
+        <label>Cpf do Cliente: <input type="number" name="cpf_cliente"></label><br><br>
+        <label>Código do Produto: <input type="number" name="codProduto"></label><br><br>
+        <label>Quantidade <input type="number" name="quantidade"></label><br><br>
+        <button type="submit">Confirma</button>
+    </form>
+</div>
+
+
+{% endblock %}

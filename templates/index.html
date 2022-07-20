@@ -1,0 +1,27 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Sistema de Gerenciamento
+{% endblock %}
+
+{% block content %}
+
+
+<div style="text-align:center">
+    <h2>Escolha a operação desejada:</h2>
+    <div class="btn-group" role="group" aria-label="ADM Completo"> 
+        <a href="/administrar-produto">
+            <button type="button" class="btn btn btn-dark" >Administrar Produtos</button>
+        </a>
+        <a href="/administrar-venda" style="text-align:center">
+            <button type="button" class="btn btn btn-dark">Administrar Vendas</button>
+        </a> 
+        <a href="/administrar-vendedor" style="text-align:center">
+            <button  type="button" class="btn btn btn-dark">Administrar Vendedores</button>
+        </a> 
+        <a href="/administrar-cliente" style="text-align:center">
+            <button  type="button" class="btn btn btn-dark">Administrar Clientes</button>
+        </a>
+    </div>
+</div>  
+{% endblock %}

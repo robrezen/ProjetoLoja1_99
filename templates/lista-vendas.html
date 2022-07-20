@@ -1,0 +1,39 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Lista Vendas
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="8">Lista de Vendas</th>
+            </tr>
+            <tr>
+                <th scope="col">Núm Venda</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+                <th scope="col">% Desconto</th>
+                <th scope="col">CPF Vendedor</th>
+                <th scope="col">CPF Cliente</th>
+                <th scope="col">Cód Produto</th>
+                <th scope="col">Qtde Produto</th>
+            </tr>
+        </thead>
+    {% for venda in lista_vendas %}
+        <tr>
+            <td>{{ venda.num_venda}}</td>
+            <td>{{ venda.data_venda}}</td>
+            <td>{{ venda.valor}}</td>
+            <td>{{ venda.percentual_desc}}</td>
+            <td>{{ venda.cpf_vendedor}}</td>
+            <td>{{ venda.cpf_cliente}}</td>
+            <td>{{ venda.cod_produto}}</td>
+            <td>{{ venda.quantidade}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

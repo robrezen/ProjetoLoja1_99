@@ -1,0 +1,26 @@
+{% extends "model-page.html" %}
+
+
+{% block head %}
+    <title>{% block title %}Administrar Clientes{% endblock %}</title>
+{% endblock %}
+
+{% block content %}
+<div style="text-align:center">
+    <h2>Gerenciamento de Clientes:</h2>
+    <div class="btn-group" role="group" aria-label="ADM Clientes"></div>
+            <a href="/registrar-cliente"><button type="button" class="btn  btn-outline-info">Registrar Cliente</button></a>
+            <a href="/alterar-cliente"><button type="button" class="btn btn-outline-info">Alterar Cliente</button></a>
+            <a href="/consultar-cliente"><button type="button" class="btn btn-outline-info">Consultar Cliente</button></a>
+            <a href="/lista-clientes"><button type="button" class="btn btn-outline-info">Listar Clientes</button></a>
+            <a href="/excluir-cliente"><button type="button" class="btn btn-outline-danger">Excluir Cliente</button></a>
+        <br>
+    </div>
+    
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}    
+            <p style="text-align:center"><b> {{ message }} </b></p>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

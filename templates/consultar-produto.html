@@ -1,0 +1,25 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Produto
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-produto"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+<div style="text-align:center">
+<h3>Consultar Produto</h3><br>
+<form action="submit" method="POST"> {% csrf_token %}
+    <label>Código Produto: <input type="number" name="num_produto"></label></br><br>
+    Ou<br><br>
+    <label>Nome Produto: <input type="text" name="nome_produto"></label></br>
+    <label><input type="radio" id="nome" name="tipo_ident" value="nome">Nome</label>
+    <label><input type="radio" id="codigo" name="tipo_ident" value="num">Código</label><br><br>
+    <input type="submit" name="codProduto" value="Confirmar" class="btn btn-primary">
+</form>
+</div>
+{% endblock %}

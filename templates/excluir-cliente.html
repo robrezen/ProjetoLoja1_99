@@ -1,0 +1,44 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Excluir Cliente
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-cliente"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+<div>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>CPF do Cliente: <input type="number" name="cpf_cliente" value="{{id}}"></label></br>
+        <input type="submit" name="infoCliente" value="Exibir Informações do Cliente"></br>
+    </form>
+    
+    {% if exibir_cliente %}
+        {% for cliente in clientes %}
+        <h3>Clientes encontrados:</h3>
+        <ul>
+            <li> CPF: {{ cliente.cpf_cliente }} </li>
+            <li> Nome: {{ cliente.nome_cliente }} </li>
+            <li> Nível: {{ cliente.nivel }} </li>
+            <li> Email: {{ cliente.email }} </li>
+            <li> Telefone: {{ cliente.telefone }} </li>
+        </ul>
+        {% endfor %}
+        {% if not clientes %}
+            <h3>Cliente não encontrado!</h3>
+        {% endif %}
+    
+        {% if clientes %}
+        <form action="confirm" method="POST"> {% csrf_token %}
+            <input type="hidden" name="cpf_cliente" value="{{id}}">
+            <button class="btn btn-primary" type="submit">Confirmar</button>
+            <a href="/administrar-cliente"><button class="btn btn-primary" type="button">Cancelar</button></a>
+        </form>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

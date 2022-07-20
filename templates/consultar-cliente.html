@@ -1,0 +1,22 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Cliente
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-cliente"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+
+<div style="text-align:center">
+    <h3>Consultar Cliente</h3><br>
+<form action="submit" method="POST"> {% csrf_token %}
+    <label>CPF do Cliente: <input type="number" name="cpf_cliente"></label><br><br>
+    <button class="btn btn-primary" type="submit">Confirma</button>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "model-page.html" %}
+
+{% block title %}
+Consultar Vendedor
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-group">
+        <a href="/administrar-vendedor"><button class="btn btn-primary"><<</button></a>
+    </div>
+</div>
+
+<div>
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label>CPF do Vendedor: <input type="number" name="cpf_vendedor"></label><br><br>
+        <button class="btn btn-primary" type="submit">Confirma</button>
+    </form>
+</div>
+{% endblock %}
